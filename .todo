@@ -1,0 +1,34 @@
+[ ] Add default entity
+[ ] Remove entity
+[ ] Add default entity as a child of another entity
+[ ] Reparent entity
+[ ] Rename entity
+[ ] Duplicate entity
+[ ] Duplicate entity recursively
+[ ] 
+[ ] Add default component of given type to an entity
+[ ] Remove component of given type from an rntity
+[ ] 
+[ ] Store a reference to an entity as EntityId or EntityPath (both derived from EntityRef)
+[ ] Store a reference to a component as ComponentId or ComponentPath (both derived from 
+    ComponentRef)
+[ ] Using component or entity reference doesn't query the Manager every time for entity or 
+    component pointer. They should be updated automatically by the Manager when there is a 
+    new entity/component under given path/id
+    Usage:
+    // storing an id or path
+    EntityId id = EntityId(ent);
+    EntityPath path = EntityPath(ent);
+    ComponentId cmp_id = ComponentId(cmp);
+    ComponentPath cmp_path = ComponentPath(cmp);
+    // converting entity id to entity path
+    EntityPath path = manager.as_path(id).value();
+    // root can be component or entity
+    ComponentPath cmp_path = manager.as_relative_path(cmp_id, root);
+    // getting entity from a reference
+    // id can be const variable, get_entity checks for cached manager inside the variable - if it's
+    // the same as the current manager it will just return cached entity pointer stored in the 
+    // variable. Otherwise ti will update the manager. Ref is subscribed to events from the manager 
+    // so it will automatically update its cached value if pointed entity is deleted or changed
+    Entity* ent = manager.get_entity(id);
+[ ] 
