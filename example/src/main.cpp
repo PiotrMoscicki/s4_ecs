@@ -1,7 +1,6 @@
-#include <assets/assets.hpp>
+#include <ecs/ecs.hpp>
 
 int main() {
-    assets::print_test("dupaaa");
 
     return 0;
 }
